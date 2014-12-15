@@ -28,11 +28,11 @@ template "/etc/monit/monitrc" do
   variables(
     :interval => settings['interval']
   )
-  #notifies :reload, "service[monit]", :immediately
+  notifies :reload, "service[monit]", :immediately
 end
 
 service "monit" do
   action [:enable, :start]
-  supports [:start, :restart, :stop]
+  supports [:start, :restart, :reload, :stop]
 end
 
