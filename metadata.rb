@@ -1,0 +1,5 @@
+name             'chef_monit'
+maintainer       'Alaa Qutaish'
+maintainer_email 'alaa.qutaish@gmail.com'
+description      'Installs/Configures monit'
+version          '0.1.0'

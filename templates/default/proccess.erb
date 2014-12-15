@@ -1,0 +1,6 @@
+check process <%= @new_resource.service_name %>
+
+with pidfile <%= @new_resource.pid_file %>
+start program = "<%= @new_resource.start_command %>"
+stop program = "<%= @new_resource.stop_command %>"
+
