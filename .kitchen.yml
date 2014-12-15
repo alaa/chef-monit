@@ -12,5 +12,5 @@ suites:
   - name: default
     run_list:
       - recipe[chef_monit::default]
-      - recipe[chef_monit::test]
+      - recipe[chef_monit::ssh]
     attributes:
