@@ -31,6 +31,19 @@ template "/etc/monit/monitrc" do
   notifies :reload, "service[monit]", :immediately
 end
 
+if settings['remonitor_all']
+  directory "/etc/cron.d/" do
+    owner  'root'
+    group 'root'
+    mode 0755
+    action :create
+  end
+
+  file "/etc/cron.d/remonitor_all" do
+    content %(*/10 * * * * root /usr/bin/monit monitor all\n)
+  end
+end
+
 service "monit" do
   action [:enable, :start]
   supports [:start, :restart, :reload, :stop]
