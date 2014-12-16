@@ -6,6 +6,6 @@ chef_monit_service "ssh" do
   stop_command "/usr/sbin/service ssh stop"
   pid_file "/tmp/sshd.pid"
   group_name "ssh"
-  memory_limit "100"
+  memory_limit "100 MB"
 end
 
