@@ -3,8 +3,10 @@ check process <%= @new_resource.service_name %>
 with pidfile <%= @new_resource.pid_file %>
 start program = "<%= @new_resource.start_command %>"
 stop program = "<%= @new_resource.stop_command %>"
-
-if totalmem is greater than <%= @new_resource.memory_limit || "800 MB" %> for 10 cycles then restart
-if 4 restarts within 5 cycles then timeout
-
 group <%= @new_resource.group_name %>
+
+<% if @new_resource.memory_limit %>
+  if totalmem is greater than <%= @new_resource.memory_limit || "800 MB" %> for 10 cycles then restart
+  if 4 restarts within 5 cycles then timeout
+<% end %>
+

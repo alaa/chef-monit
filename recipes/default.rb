@@ -1,4 +1,4 @@
-settings = node['chef_monit']
+settings = node[:chef_monit]
 
 package "monit" do
   action :install
@@ -26,7 +26,7 @@ template "/etc/monit/monitrc" do
   mode 0700
   source 'monitrc.erb'
   variables(
-    :interval => settings['interval']
+    :interval => settings[:interval]
   )
   notifies :reload, "service[monit]", :immediately
 end
