@@ -12,6 +12,7 @@ platforms:
 suites:
   - name: default
     run_list:
+      - recipe[chef_monit::uninstall]
       - recipe[chef_monit::default]
       - recipe[chef_monit::services]
     attributes:
