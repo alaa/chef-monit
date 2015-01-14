@@ -4,6 +4,6 @@ default[:chef_monit][:service][:ssh] = {
   :stop_program => "service ssh stop",
   :pid_file => "/tmp/sshd.pid",
   :group_name => "ssh",
-  :memory_limit => "100 MB",
+  :memory_limit => 100,
 }
 
