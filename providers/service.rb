@@ -13,7 +13,7 @@ action :create do
     group "root"
     mode "644"
     source "proccess.erb"
-    path ::File.join(monit_path, new_resource.service_name)
+    path ::File.join(monit_path, "#{new_resource.service_name}.monit")
     variables(:new_resource => new_resource)
     action :create
   end
